@@ -1,0 +1,7 @@
+env:
+  - name: PORT
+    value: ":8000"
+
+secrets:
+  - name: sqlite
+    value: ./db/sqlite.db

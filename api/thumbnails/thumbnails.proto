@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package thumbnails;
+
+option go_package = "github.com/romik1505/thumbnails;thumbnails";
+
+service Thumbnail {
+  rpc Get(GetRequest) returns(GetResponse){}
+}
+
+message GetRequest {
+  string url = 1;
+}
+
+message GetResponse {
+  bytes image = 1;
+}
