@@ -39,4 +39,4 @@ test:
 	SQLITE=$(SQLITE) VALUES=$(VALUES) go test -v ./...
 
 lint:
-	$(LOCAL_BIN)/golangci-lint run ./... --timeout 30s
+	$(LOCAL_BIN)/golangci-lint run ./... --timeout 60s
