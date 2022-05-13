@@ -15,6 +15,7 @@ db\:create:
 	$(LOCAL_BIN)/goose -dir migrations create "$(NAME)" sql
 
 db\:up:
+	@mkdir -p db
 	$(LOCAL_BIN)/goose -dir migrations sqlite3 "$(SQLITE)" up
 
 db\:down:
