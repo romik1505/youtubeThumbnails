@@ -14,11 +14,21 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: load dependency
+    - name: load dependencies
       run: make bin-depth
 
     - name: lint
       run: make lint
 
-      
+  migrations:
+    needs: [build]
+    steps:
+      - name: migrate
+        run: make db:up
+
+  test:
+    needs: [build, migrations]
+    steps:
+      - name: testing
+        run: make test
 
