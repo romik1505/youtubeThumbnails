@@ -26,7 +26,15 @@
 
 **Структура проекта**
 
-    ├── 1.txt
+
+```
+    ├── .github
+    │     └── workflows
+    │          └── basic_pipeline.yml       Настройки пайплайна Github Actions
+    ├── .o3
+    │    └── k8s
+    │         └── values_local.yaml         Конфигурация сервера
+    ├── 1.txt                               Файл со ссылками
     ├── api
     │   └── thumbnails
     │       └── thumbnails.proto            Прото файлы сервиса
@@ -72,3 +80,4 @@
     │           ├── thumbnails.pb.go
     │           └── thumbnails.swagger.json
     └── README.md
+```
