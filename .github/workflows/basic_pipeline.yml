@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  testing:
 
     runs-on: ubuntu-latest
 
@@ -20,15 +20,9 @@ jobs:
     - name: lint
       run: make lint
 
-  migrations:
-    needs: [build]
-    steps:
-      - name: migrate
-        run: make db:up
+    - name: migrations
+      run: make db:up
 
-  test:
-    needs: [build, migrations]
-    steps:
-      - name: testing
-        run: make test
+    - name: testing
+      run: make test
 
