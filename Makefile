@@ -7,11 +7,9 @@ $(eval SQLITE=$(shell cat $(VALUES) | grep -i "sqlite" -A1 | sed -n '2p;2q' | se
 SQLITE:=$(addprefix $(CURRENT_DIR)/, $(SQLITE))
 endif
 
-swagger:
-	$(LOCAL_BIN)/swagger generate spec -o swagger.json --scan-models
-
 bin-depth:
 	GOBIN=$(LOCAL_BIN) go install github.com/pressly/goose/v3/cmd/goose@v3.5.3
+	GOBIN=$(LOCAL_BIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.46.1
 
 db\:create:
 	$(LOCAL_BIN)/goose -dir migrations create "$(NAME)" sql
@@ -40,4 +38,4 @@ test:
 	go test -v ./...
 
 lint:
-	golangci-lint run ./...
+	$(LOCAL_BIN)/golangci-lint run ./...
